@@ -115,9 +115,9 @@ function getDotStyle(vel: number, isActive: boolean): CSSProperties {
 // ─── Mutation slider config ────────────────────────────────────────────────────
 
 const SLIDERS: { key: keyof Omit<MutationParams, 'seed'>; label: string; hint: string; min: number; max: number; step: number }[] = [
-  { key: 'swingAmount',      label: 'Swing',       hint: '0 = straight · 1 = full preset',    min: 0,  max: 1,  step: 0.01 },
   { key: 'ghostNoteDensity', label: 'Ghost Notes', hint: 'Ghost insert probability',           min: 0,  max: 1,  step: 0.01 },
   { key: 'hatVariation',     label: 'Hat Chaos',   hint: 'Hat step flip probability',          min: 0,  max: 1,  step: 0.01 },
+  { key: 'swingAmount',      label: 'Swing',       hint: '0 = straight · 1 = full preset',    min: 0,  max: 1,  step: 0.01 },
   { key: 'accentShift',      label: 'Accent Drift',hint: 'Shift accents within beat groups',   min: -1, max: 1,  step: 0.01 },
 ]
 
