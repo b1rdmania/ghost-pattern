@@ -342,9 +342,14 @@ export default function App() {
 
       <label style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
         <span style={{ fontSize: 9, letterSpacing: 2, textTransform: 'uppercase', color: C.textDim, fontWeight: 500 }}>BPM</span>
-        <input type="number" min={60} max={200} value={playgroundDoc.bpm} onChange={e => handleBpmChange(e.target.value)}
-          style={{ width: 54, background: C.bgDeck, border: `1px solid ${C.border}`, borderRadius: 3, color: C.text, fontSize: 13, fontWeight: 300, fontFamily: 'inherit', padding: '4px 8px', textAlign: 'center' }}
+        <input type="range"
+          min={Math.max(60, activeStudy.bpmRange[0] - 20)}
+          max={Math.min(220, activeStudy.bpmRange[1] + 20)}
+          value={playgroundDoc.bpm}
+          onChange={e => handleBpmChange(e.target.value)}
+          style={{ width: isMobile ? 90 : 80 }}
         />
+        <span style={{ fontSize: 12, fontWeight: 300, color: C.textSub, minWidth: 30 }}>{playgroundDoc.bpm}</span>
       </label>
 
       <label style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -358,11 +363,9 @@ export default function App() {
         </div>
       </label>
 
-      {!isMobile && (
-        <button onClick={() => downloadMIDI(playgroundDoc)} style={{ background: 'transparent', border: `1px solid ${C.border}`, borderRadius: 3, color: C.textDim, fontSize: 9, fontWeight: 500, letterSpacing: 2, textTransform: 'uppercase', padding: '6px 14px', cursor: 'pointer', marginLeft: 'auto' }}>
-          Export MIDI
-        </button>
-      )}
+      <button onClick={() => downloadMIDI(playgroundDoc)} style={{ background: 'transparent', border: `1px solid ${C.border}`, borderRadius: 3, color: C.textDim, fontSize: 9, fontWeight: 500, letterSpacing: 2, textTransform: 'uppercase', padding: isMobile ? '10px 14px' : '6px 14px', cursor: 'pointer', marginLeft: 'auto' }}>
+        Export MIDI
+      </button>
     </div>
   )
 

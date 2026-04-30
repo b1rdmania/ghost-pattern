@@ -77,6 +77,7 @@ export const useStore = create<AppState>((set, get) => ({
   setPlaygroundDoc: (doc) => {
     const { playgroundDoc, history } = get()
     set({
+      basePattern: doc,
       playgroundDoc: doc,
       history: playgroundDoc
         ? [...history.slice(-(MAX_HISTORY - 1)), playgroundDoc]
@@ -100,6 +101,6 @@ export const useStore = create<AppState>((set, get) => ({
     const { history } = get()
     if (history.length === 0) return
     const prev = history[history.length - 1]
-    set({ playgroundDoc: prev, history: history.slice(0, -1) })
+    set({ basePattern: prev, playgroundDoc: prev, history: history.slice(0, -1) })
   },
 }))
