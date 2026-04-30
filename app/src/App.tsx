@@ -1,7 +1,5 @@
 import { useEffect, useState, CSSProperties } from 'react'
 import { useStore } from './store'
-import SplashPage from './pages/SplashPage'
-import AboutPage from './pages/AboutPage'
 import { registerPresets } from './lib/groove'
 import { startTransport, stopTransport, syncBpm } from './lib/scheduler'
 import { downloadMIDI } from './lib/midi'
@@ -16,8 +14,8 @@ import detroitStudy from '../../content/studies/arch-detroit-techno-001.json'
 import detroitPack  from '../../content/packs/detroit-techno.json'
 import nycStudy     from '../../content/studies/arch-nyc-garage-001.json'
 import nycPack      from '../../content/packs/nyc-garage.json'
-import ukStudy      from '../../content/studies/arch-uk-acid-001.json'
-import ukPack       from '../../content/packs/uk-acid.json'
+import perlonStudy  from '../../content/studies/arch-perlon-001.json'
+import perlonPack   from '../../content/packs/perlon.json'
 
 // ─── Groove presets ────────────────────────────────────────────────────────────
 
@@ -71,10 +69,18 @@ const PRESETS: GroovePreset[] = [
     stepOffsets: new Array(16).fill(0),
     velocityOffsets:[0, 0, -1, 0,  0, 0, -1, 0,  0, 0, -1, 0,  0, 0, -1, 0],
   },
+  {
+    id: 'perlon-minimal-swing',
+    name: 'Perlon Minimal Swing',
+    description: 'Subtle 16th-note swing. Off-beats delayed 15 ticks. Mechanical but breathing.',
+    stepOffsets:    [0, 15, 0, 15,  0, 15, 0, 15,  0, 15, 0, 15,  0, 15, 0, 15],
+    velocityOffsets:[0, -1, 0, -1,  0, -1, 0, -1,  0, -1, 0, -1,  0, -1, 0, -1],
+  },
 ]
 
-const ALL_PACKS    = [chicagoPack, berlinPack, detroitPack, nycPack, ukPack] as Pack[]
-const ALL_STUDIES  = [chicagoStudy, berlinStudy, detroitStudy, nycStudy, ukStudy] as unknown as GrooveStudy[]
+const ALL_PACKS    = [chicagoPack, berlinPack, detroitPack, nycPack, perlonPack] as Pack[]
+const ALL_STUDIES  = [chicagoStudy, berlinStudy, detroitStudy, nycStudy, perlonStudy] as unknown as GrooveStudy[]
+const HIDDEN_SCENE_IDS = ['study-perlon-001']
 
 // ─── Design tokens ─────────────────────────────────────────────────────────────
 
@@ -137,16 +143,7 @@ function useIsMobile() {
 
 // ─── Main app ──────────────────────────────────────────────────────────────────
 
-export default function App() {
-  const [page, setPage] = useState<'splash' | 'app' | 'about'>('splash')
-
-  if (page === 'splash') {
-    return <SplashPage onEnter={() => setPage('app')} onAbout={() => setPage('about')} />
-  }
-  if (page === 'about') {
-    return <AboutPage onBack={() => setPage('app')} />
-  }
-
+export default function App({ onAbout }: { onAbout?: () => void }) {
   const { loadContent, openStudy } = useStore()
 
   // store slices
@@ -181,7 +178,11 @@ export default function App() {
   }, [loadContent])
 
   useEffect(() => {
-    if (!activeStudy) openStudy('study-chicago-house-001')
+    if (!activeStudy) {
+      const hash = window.location.hash.slice(1)
+      const hashStudy = ALL_STUDIES.find(s => s.sceneTag === hash)
+      openStudy(hashStudy?.id ?? 'study-chicago-house-001')
+    }
   }, [activeStudy, openStudy])
 
   // ── Reset sliders when pattern source changes (scene switch or variation) ──
@@ -229,14 +230,20 @@ export default function App() {
   function cycleVelocity(doc: PatternDocument, laneId: string, stepIndex: number) {
     const current = doc.steps[laneId][stepIndex]
     const next = (current + 1) % 4
-    setPlaygroundDoc({
-      ...doc,
-      steps: {
-        ...doc.steps,
-        [laneId]: doc.steps[laneId].map((v, i) => i === stepIndex ? next : v),
-      },
-      metadata: { ...doc.metadata, role: 'user-generated' },
-    })
+    const steps = {
+      ...doc.steps,
+      [laneId]: doc.steps[laneId].map((v, i) => i === stepIndex ? next : v),
+    }
+    // turning on ohat — clear chat at same step so it isn't immediately choked
+    const ohatId = doc.lanes.find(l => l.midiNote === 46)?.id
+    const chatId = doc.lanes.find(l => l.midiNote === 42)?.id
+    if (laneId === ohatId && next > 0 && chatId && steps[chatId]) {
+      const total = doc.stepsPerBar * doc.bars
+      steps[chatId] = steps[chatId].map((v, i) =>
+        (i === stepIndex || i === (stepIndex + 1) % total) ? 0 : v
+      )
+    }
+    setPlaygroundDoc({ ...doc, steps, metadata: { ...doc.metadata, role: 'user-generated' } })
   }
 
   function handleNewSeed() {
@@ -410,7 +417,7 @@ export default function App() {
 
   const SceneList = ({ onSelect }: { onSelect?: () => void }) => (
     <>
-      {studyList.map(study => {
+      {studyList.filter(s => !HIDDEN_SCENE_IDS.includes(s.id)).map(study => {
         const isActive = study.id === activeStudy.id
         return (
           <button key={study.id} onClick={() => { if (isPlaying) stopTransport(); openStudy(study.id); onSelect?.() }}
@@ -454,7 +461,7 @@ export default function App() {
               )
             })}
             <button
-              onClick={() => { setMenuOpen(false); setPage('about') }}
+              onClick={() => { setMenuOpen(false); onAbout?.() }}
               style={{ display: 'flex', alignItems: 'center', width: '100%', textAlign: 'left', background: 'transparent', border: 'none', borderLeft: '3px solid transparent', color: C.textDim, fontSize: 13, fontWeight: 400, letterSpacing: 0.5, padding: '18px 20px', cursor: 'pointer' }}>
               About
             </button>
@@ -511,9 +518,10 @@ export default function App() {
         <nav style={{ padding: '16px 0', flex: 1 }}>
           <div style={{ padding: '0 20px 10px', fontSize: 9, letterSpacing: 2.5, textTransform: 'uppercase', color: C.textDim, fontWeight: 500 }}>Scenes</div>
           <SceneList />
+          <div style={{ margin: '12px 16px 0', padding: '8px 10px', border: `1px solid ${C.accent}`, fontSize: 9, color: C.accent, letterSpacing: 1.5, textTransform: 'uppercase', lineHeight: 1.5, opacity: 0.7 }}>⚠ Stop before<br />switching scene</div>
         </nav>
         <button
-          onClick={() => setPage('about')}
+          onClick={() => onAbout?.()}
           style={{ margin: '0 16px 8px', background: 'transparent', border: 'none', color: C.textDim, fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', cursor: 'pointer', textAlign: 'left', padding: '12px 4px', fontFamily: 'inherit', transition: 'color 0.2s' }}
           onMouseEnter={e => (e.currentTarget.style.color = C.text)}
           onMouseLeave={e => (e.currentTarget.style.color = C.textDim)}

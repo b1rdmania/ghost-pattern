@@ -184,13 +184,6 @@ const genres = [
     desc: 'Swing-heavy hi-hats and syncopated snare placements. The sound of the underground.',
     featured: false,
   },
-  {
-    studyId: 'study-uk-acid-001',
-    meta: 'Engine 05 / Raw',
-    title: 'UK Acid Rave',
-    desc: 'Straight grid, maximum floor impact. The drum machine that survived the warehouse.',
-    featured: false,
-  },
 ]
 
 const ArrowIcon = () => (
@@ -336,7 +329,7 @@ export default function SplashPage({ onEnter, onAbout }: Props) {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
   const openStudy = useStore(s => s.openStudy)
 
-  const sceneLinks = ['Chicago House', 'Berlin Techno', 'Detroit Techno', 'NYC Garage', 'UK Acid Rave']
+  const sceneLinks = ['Chicago House', 'Berlin Techno', 'Detroit Techno', 'NYC Garage']
 
   useEffect(() => {
     const link = document.createElement('link')

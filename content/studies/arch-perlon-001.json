@@ -1,0 +1,170 @@
+{
+  "id": "study-perlon-001",
+  "version": "1.0",
+  "title": "Perlon — The Zip Ground",
+  "subtitle": "Minimal techno from Frankfurt, built for floors that never close",
+  "annotation": "The Perlon aesthetic is not about what you add. It is about what you refuse to remove. The kick is four-on-the-floor without apology — hard, saturated, warm. Hats run every 16th note, slightly swung on the off-beats, darkened by heavy low-pass filtering. The snare sits on 2 and 4 with ghost notes one 16th ahead, barely audible. One anticipation kick at the end of the phrase creates forward momentum without disrupting hypnosis. The open hat lands on the + of 2 in each bar — structural, not decorative. Do not add fills. Do not add drops. The groove is the journey.",
+  "grooveProfile": {
+    "swingFeel": "Subtle 16th-note swing. Off-beats delayed 15-18 ticks. Mechanical but breathing — never stiff, never lazy.",
+    "accentLogic": "Kick carries weight. Hat velocity alternates 2/1 on every 16th to suggest pulse without stating it. Ghost snares exist at the edge of perception.",
+    "microtimingTendencies": "Two-bar loop. Groove is identical each cycle. The transformation happens through filter sweeps and textural evolution in the mix, not pattern variation."
+  },
+  "canonicalPattern": {
+    "version": "1.0",
+    "id": "arch-perlon-001",
+    "sourceStudyId": null,
+    "bpm": 124,
+    "timeSignature": { "numerator": 4, "denominator": 4 },
+    "stepsPerBar": 16,
+    "bars": 2,
+    "lanes": [
+      { "id": "kick",  "name": "Kick",        "midiNote": 36, "chokeGroup": null },
+      { "id": "snare", "name": "Snare",       "midiNote": 38, "chokeGroup": null },
+      { "id": "clap",  "name": "Clap",        "midiNote": 39, "chokeGroup": null },
+      { "id": "chat",  "name": "Closed Hat",  "midiNote": 42, "chokeGroup": "hats" },
+      { "id": "ohat",  "name": "Open Hat",    "midiNote": 46, "chokeGroup": "hats" }
+    ],
+    "steps": {
+      "kick":  [3,0,0,0, 3,0,0,0, 3,0,0,0, 3,0,0,1, 3,0,0,0, 3,0,0,0, 3,0,0,0, 3,0,0,0],
+      "snare": [0,0,0,1, 2,0,0,0, 0,0,0,1, 2,0,0,0, 0,0,0,1, 2,0,0,0, 0,0,0,1, 2,0,0,0],
+      "clap":  [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0],
+      "chat":  [2,1,2,1, 2,1,0,1, 2,1,2,1, 2,1,0,1, 2,1,2,1, 2,1,0,1, 2,1,2,1, 2,1,0,1],
+      "ohat":  [0,0,0,0, 0,0,2,0, 0,0,0,0, 0,0,2,0, 0,0,0,0, 0,0,2,0, 0,0,0,0, 0,0,2,0]
+    },
+    "groove": { "presetId": "perlon-minimal-swing", "intensity": 0.5 },
+    "seed": null,
+    "mutationParams": null,
+    "metadata": {
+      "title": "Perlon — The Zip Ground",
+      "studyId": "study-perlon-001",
+      "role": "canonical",
+      "packId": "pack-perlon",
+      "sceneTag": "perlon",
+      "era": "1997-2008",
+      "description": null,
+      "digSceneRef": "dig-scene-perlon"
+    }
+  },
+  "variations": [
+    {
+      "version": "1.0",
+      "id": "var-perlon-001-a",
+      "sourceStudyId": "study-perlon-001",
+      "bpm": 125,
+      "timeSignature": { "numerator": 4, "denominator": 4 },
+      "stepsPerBar": 16,
+      "bars": 2,
+      "lanes": [
+        { "id": "kick",  "name": "Kick",        "midiNote": 36, "chokeGroup": null },
+        { "id": "snare", "name": "Snare",       "midiNote": 38, "chokeGroup": null },
+        { "id": "clap",  "name": "Clap",        "midiNote": 39, "chokeGroup": null },
+        { "id": "chat",  "name": "Closed Hat",  "midiNote": 42, "chokeGroup": "hats" },
+        { "id": "ohat",  "name": "Open Hat",    "midiNote": 46, "chokeGroup": "hats" }
+      ],
+      "steps": {
+        "kick":  [3,0,0,0, 3,0,0,1, 3,0,0,0, 3,0,0,1, 3,0,0,0, 3,0,0,1, 3,0,0,0, 3,0,0,1],
+        "snare": [0,0,0,1, 2,0,0,0, 0,0,0,1, 2,0,0,0, 0,0,0,1, 2,0,0,0, 0,0,0,1, 2,0,0,0],
+        "clap":  [0,0,0,0, 0,0,0,0, 0,0,0,0, 2,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 2,0,0,0],
+        "chat":  [2,1,2,1, 2,1,0,1, 2,1,2,1, 2,1,0,1, 2,1,2,1, 2,1,0,1, 2,1,2,1, 2,1,0,1],
+        "ohat":  [0,0,2,0, 0,0,2,0, 0,0,0,0, 0,0,2,0, 0,0,2,0, 0,0,2,0, 0,0,0,0, 0,0,2,0]
+      },
+      "groove": { "presetId": "perlon-minimal-swing", "intensity": 0.55 },
+      "seed": null,
+      "mutationParams": null,
+      "metadata": {
+        "title": "Perlon — Pantytec Stack",
+        "studyId": "study-perlon-001",
+        "role": "variation",
+        "packId": "pack-perlon",
+        "sceneTag": "perlon",
+        "era": "1997-2008",
+        "description": "Anticipation kicks before every beat 3 and bar turn. Open hat density increases — now landing on + of 1 as well. Single clap on beat 4 only. The pattern becomes denser without losing minimalism. Pantytec's approach: layered, not complicated.",
+        "digSceneRef": "dig-scene-perlon"
+      }
+    },
+    {
+      "version": "1.0",
+      "id": "var-perlon-001-b",
+      "sourceStudyId": "study-perlon-001",
+      "bpm": 124,
+      "timeSignature": { "numerator": 4, "denominator": 4 },
+      "stepsPerBar": 16,
+      "bars": 2,
+      "lanes": [
+        { "id": "kick",  "name": "Kick",        "midiNote": 36, "chokeGroup": null },
+        { "id": "snare", "name": "Snare",       "midiNote": 38, "chokeGroup": null },
+        { "id": "clap",  "name": "Clap",        "midiNote": 39, "chokeGroup": null },
+        { "id": "chat",  "name": "Closed Hat",  "midiNote": 42, "chokeGroup": "hats" },
+        { "id": "ohat",  "name": "Open Hat",    "midiNote": 46, "chokeGroup": "hats" }
+      ],
+      "steps": {
+        "kick":  [3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,0,0],
+        "snare": [0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0],
+        "clap":  [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0],
+        "chat":  [1,0,1,0, 1,0,0,0, 1,0,1,0, 1,0,0,0, 1,0,1,0, 1,0,0,0, 1,0,1,0, 1,0,0,0],
+        "ohat":  [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,2,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,2,0]
+      },
+      "groove": { "presetId": "perlon-minimal-swing", "intensity": 0.35 },
+      "seed": null,
+      "mutationParams": null,
+      "metadata": {
+        "title": "Perlon — Villalobos Stripped",
+        "studyId": "study-perlon-001",
+        "role": "variation",
+        "packId": "pack-perlon",
+        "sceneTag": "perlon",
+        "era": "1997-2008",
+        "description": "Kick drops to beats 1 and 3 only. Hats thin to 8th notes at low velocity. One open hat per bar on the + of beat 4. No ghosts. This is what happens when you remove everything that isn't load-bearing. Villalobos made 12-minute tracks out of patterns like this.",
+        "digSceneRef": "dig-scene-perlon"
+      }
+    },
+    {
+      "version": "1.0",
+      "id": "var-perlon-001-c",
+      "sourceStudyId": "study-perlon-001",
+      "bpm": 126,
+      "timeSignature": { "numerator": 4, "denominator": 4 },
+      "stepsPerBar": 16,
+      "bars": 2,
+      "lanes": [
+        { "id": "kick",  "name": "Kick",        "midiNote": 36, "chokeGroup": null },
+        { "id": "snare", "name": "Snare",       "midiNote": 38, "chokeGroup": null },
+        { "id": "clap",  "name": "Clap",        "midiNote": 39, "chokeGroup": null },
+        { "id": "chat",  "name": "Closed Hat",  "midiNote": 42, "chokeGroup": "hats" },
+        { "id": "ohat",  "name": "Open Hat",    "midiNote": 46, "chokeGroup": "hats" }
+      ],
+      "steps": {
+        "kick":  [3,0,0,0, 3,0,0,1, 3,0,0,0, 3,0,0,1, 3,0,0,0, 3,0,0,1, 3,0,0,0, 3,0,0,1],
+        "snare": [0,0,1,1, 2,0,0,0, 0,1,0,1, 2,0,0,0, 0,0,1,1, 2,0,0,0, 0,1,0,1, 2,0,0,0],
+        "clap":  [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0],
+        "chat":  [2,1,2,1, 2,1,0,1, 2,0,2,1, 2,1,0,1, 2,1,2,1, 2,1,0,1, 2,0,2,1, 2,1,0,1],
+        "ohat":  [0,0,0,0, 0,0,2,0, 0,0,2,0, 0,0,2,0, 0,0,0,0, 0,0,2,0, 0,0,2,0, 0,0,2,0]
+      },
+      "groove": { "presetId": "perlon-minimal-swing", "intensity": 0.6 },
+      "seed": null,
+      "mutationParams": null,
+      "metadata": {
+        "title": "Perlon — Errorsmith Texture",
+        "studyId": "study-perlon-001",
+        "role": "variation",
+        "packId": "pack-perlon",
+        "sceneTag": "perlon",
+        "era": "1997-2008",
+        "description": "Ghost snare density increases — now two ghosts per beat in alternating positions. Open hats multiply in bar 2, creating the sensation of a building phrase without any structural change. Errorsmith's approach: use the existing elements to create movement.",
+        "digSceneRef": "dig-scene-perlon"
+      }
+    }
+  ],
+  "kitPairing": "berlin-techno",
+  "sceneTag": "perlon",
+  "era": "1997-2008",
+  "bpmRange": [122, 127],
+  "digSceneRef": "dig-scene-perlon",
+  "packId": "pack-perlon",
+  "tagline": "deep minimal from the Frankfurt/Berlin underground",
+  "displayStats": {
+    "swing": "15",
+    "accent": "62",
+    "shift": "0"
+  }
+}

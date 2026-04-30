@@ -195,7 +195,6 @@ const scenes = [
   'Berlin Techno',
   'Detroit Techno',
   'NYC Garage',
-  'UK Acid Rave',
 ]
 
 const links = [
@@ -236,7 +235,7 @@ export default function AboutPage({ onBack }: Props) {
       <div style={styles.mainContainer}>
         <header style={styles.headerSettings}>
           <h1 style={{ fontSize: '48px', fontWeight: 300, lineHeight: 1.1, letterSpacing: '-0.03em' }}>
-            Groove studies from the <strong>electronic music canon.</strong>
+            Drum patterns from the <strong>electronic music canon.</strong>
           </h1>
         </header>
 
@@ -247,23 +246,23 @@ export default function AboutPage({ onBack }: Props) {
               <h2 style={styles.settingsSectionTitle}>What It Is</h2>
 
               <div style={styles.settingRow}>
-                <label style={styles.settingLabel}>The Idea</label>
+                <label style={styles.settingLabel}>What It Is</label>
                 <span style={styles.settingDesc}>
-                  A browser-first drum machine built around curated Groove Studies — one focused encounter with a rhythmic idea from a specific scene and era. Open a study, hear the canonical pattern, load variations, mutate with sliders, export to MIDI.
+                  Open a scene, hear the pattern, load variations, move sliders, export MIDI. Each scene has a canonical pattern, authored variations, and a matched 909/808 kit.
                 </span>
               </div>
 
               <div style={styles.settingRow}>
-                <label style={styles.settingLabel}>Why It Exists</label>
+                <label style={styles.settingLabel}>Why</label>
                 <span style={styles.settingDesc}>
-                  Producers lack a low-friction, opinionated place to understand how specific scenes treat rhythm. Existing tools are either static loops or full DAWs. This sits between — a concise, visual, scene-aware drum lab where every pattern has a story.
+                  Most tools are either static loops or full DAWs. This sits between — a drum lab where every pattern has a source and a story.
                 </span>
               </div>
 
               <div style={styles.settingRow}>
-                <label style={styles.settingLabel}>Scenes in V0.1</label>
+                <label style={styles.settingLabel}>Scenes</label>
                 <span style={styles.settingDesc}>
-                  Chicago House · Berlin Techno · Detroit Techno · NYC Garage · UK Acid Rave. Each study includes a canonical pattern, authored variations, groove profile annotation, and an era-matched 909/808 sample kit.
+                  Chicago House · Berlin Techno · Detroit Techno · NYC Garage
                 </span>
               </div>
             </section>
@@ -274,21 +273,21 @@ export default function AboutPage({ onBack }: Props) {
               <div style={styles.settingRow}>
                 <label style={styles.settingLabel}>Ableton Export</label>
                 <span style={styles.settingDesc}>
-                  One-click export into an Ableton Live set — MIDI routed to a pre-configured 909/808 drum rack, BPM matched, ready to produce.
+                  Export directly into a Live set — MIDI on a drum rack, BPM matched.
                 </span>
               </div>
 
               <div style={styles.settingRow}>
                 <label style={styles.settingLabel}>Clip Analysis</label>
                 <span style={styles.settingDesc}>
-                  Drop in a drum loop from any track. The app maps the hits to the grid, identifies the groove profile, and lets you study it the same way as the built-in scenes.
+                  Drop in a drum loop. It maps the hits to the grid and lets you study it like a built-in scene.
                 </span>
               </div>
 
               <div style={styles.settingRow}>
                 <label style={styles.settingLabel}>More Scenes</label>
                 <span style={styles.settingDesc}>
-                  Jungle, Baltimore Club, Broken Beat, Afrobeats, UKG, Footwork. The canon is deep — the study format scales to any scene with identifiable rhythmic logic.
+                  Jungle · Baltimore Club · Broken Beat · UKG · Footwork
                 </span>
               </div>
             </section>
@@ -320,8 +319,20 @@ export default function AboutPage({ onBack }: Props) {
             ))}
 
             <div style={{ marginTop: '40px', fontSize: '11px', color: 'rgba(255,255,255,0.2)', lineHeight: 1.6 }}>
-              Built in an afternoon.<br />
-              Patterns researched from source records.
+              Built in a day.<br />
+              Patterns from source records.
+            </div>
+
+            <div style={{ marginTop: '32px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '24px' }}>
+              <div style={{ fontSize: '9px', textTransform: 'uppercase' as const, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.2)', marginBottom: '12px' }}>Deep Cuts</div>
+              <a
+                href="/#perlon"
+                style={{ display: 'block', fontSize: '11px', color: 'rgba(255,255,255,0.35)', textDecoration: 'none', letterSpacing: '0.05em' }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#E2FF46')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.35)')}
+              >
+                Perlon — The Zip Ground →
+              </a>
             </div>
           </aside>
         </div>
