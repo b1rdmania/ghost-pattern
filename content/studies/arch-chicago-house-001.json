@@ -1,0 +1,92 @@
+{
+  "id": "study-chicago-house-001",
+  "version": "1.0",
+  "title": "Chicago House — Four Four Foundation",
+  "subtitle": "The swing that made 1991 feel inevitable",
+  "annotation": "The foundational four-on-the-floor of early Chicago house. Kick lands on every beat — no variation, no apology. Snare and clap lock to beats 2 and 4 at medium velocity; the clap is not an accent, it is a commitment. Hats run straight 8th notes with swing pulling the off-beats just behind. The open hat sits on the 'and' of beat 4, not beat 3 — that placement is structural, not ornamental. What not to correct: the laziness of the hat feel is the point. Tightening it toward the grid removes the pocket. The pattern loops every two bars to give the kick space to breathe.",
+  "grooveProfile": {
+    "swingFeel": "Lazy 8th-note triplet push. Off-beats sit behind the grid by 25-35 ticks. The feel is unhurried.",
+    "accentLogic": "Kick carries the weight. Snare and clap are structural, not expressive. No accent on the hat.",
+    "microtimingTendencies": "Straight two-bar loop. No cross-bar feel. Groove repeats identically every bar."
+  },
+  "canonicalPattern": {
+    "version": "1.0",
+    "id": "arch-chicago-house-001",
+    "sourceStudyId": null,
+    "bpm": 124,
+    "timeSignature": { "numerator": 4, "denominator": 4 },
+    "stepsPerBar": 16,
+    "bars": 2,
+    "lanes": [
+      { "id": "kick",  "name": "Kick",       "midiNote": 36, "chokeGroup": null },
+      { "id": "snare", "name": "Snare",       "midiNote": 38, "chokeGroup": null },
+      { "id": "clap",  "name": "Clap",        "midiNote": 39, "chokeGroup": null },
+      { "id": "chat",  "name": "Closed Hat",  "midiNote": 42, "chokeGroup": "hats" },
+      { "id": "ohat",  "name": "Open Hat",    "midiNote": 46, "chokeGroup": "hats" }
+    ],
+    "steps": {
+      "kick":  [3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,0,0,  3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,0,0],
+      "snare": [0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0,  0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0],
+      "clap":  [0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0,  0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0],
+      "chat":  [1,0,1,0, 1,0,1,0, 1,0,1,0, 1,0,1,0,  1,0,1,0, 1,0,1,0, 1,0,1,0, 1,0,1,0],
+      "ohat":  [0,0,0,0, 0,0,0,1, 0,0,0,0, 0,0,0,1,  0,0,0,0, 0,0,0,1, 0,0,0,0, 0,0,0,1]
+    },
+    "groove": { "presetId": "chicago-house-swing", "intensity": 0.7 },
+    "seed": null,
+    "mutationParams": null,
+    "metadata": {
+      "title": "Chicago House — Four Four Foundation",
+      "studyId": "study-chicago-house-001",
+      "role": "canonical",
+      "packId": "pack-chicago-house",
+      "sceneTag": "chicago-house",
+      "era": "1990-1993",
+      "description": null,
+      "digSceneRef": "dig-scene-chicago-house"
+    }
+  },
+  "variations": [
+    {
+      "version": "1.0",
+      "id": "var-chicago-house-001-a",
+      "sourceStudyId": "study-chicago-house-001",
+      "bpm": 124,
+      "timeSignature": { "numerator": 4, "denominator": 4 },
+      "stepsPerBar": 16,
+      "bars": 2,
+      "lanes": [
+        { "id": "kick",  "name": "Kick",       "midiNote": 36, "chokeGroup": null },
+        { "id": "snare", "name": "Snare",       "midiNote": 38, "chokeGroup": null },
+        { "id": "clap",  "name": "Clap",        "midiNote": 39, "chokeGroup": null },
+        { "id": "chat",  "name": "Closed Hat",  "midiNote": 42, "chokeGroup": "hats" },
+        { "id": "ohat",  "name": "Open Hat",    "midiNote": 46, "chokeGroup": "hats" }
+      ],
+      "steps": {
+        "kick":  [3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,0,0,  3,0,0,0, 0,0,0,1, 3,0,0,0, 0,0,0,0],
+        "snare": [0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0,  0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0],
+        "clap":  [0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0,  0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0],
+        "chat":  [1,0,1,0, 1,0,1,0, 1,0,1,1, 1,0,1,0,  1,0,1,0, 1,0,1,0, 1,0,1,1, 1,0,1,0],
+        "ohat":  [0,0,0,0, 0,0,0,1, 0,0,0,0, 0,0,0,1,  0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1]
+      },
+      "groove": { "presetId": "chicago-house-swing", "intensity": 0.7 },
+      "seed": null,
+      "mutationParams": null,
+      "metadata": {
+        "title": "Chicago House — Four Four Foundation (Hat Fill Variation)",
+        "studyId": "study-chicago-house-001",
+        "role": "variation",
+        "packId": "pack-chicago-house",
+        "sceneTag": "chicago-house",
+        "era": "1990-1993",
+        "description": "Adds a 16th-note hat fill into bar 2. Closed hat doubles up before beat 3 and beat 4. Open hat drops on the bar 2 'and of 4'. Shows how a minor hat addition changes energy without touching the kick.",
+        "digSceneRef": "dig-scene-chicago-house"
+      }
+    }
+  ],
+  "kitPairing": "chicago-house",
+  "sceneTag": "chicago-house",
+  "era": "1990-1993",
+  "bpmRange": [120, 128],
+  "digSceneRef": "dig-scene-chicago-house",
+  "packId": "pack-chicago-house"
+}

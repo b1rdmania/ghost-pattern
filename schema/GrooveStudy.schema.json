@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GrooveStudy",
+  "type": "object",
+  "required": ["id", "version", "title", "subtitle", "annotation", "grooveProfile", "canonicalPattern", "variations", "kitPairing", "sceneTag", "era", "bpmRange"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "title": { "type": "string" },
+    "subtitle": {
+      "type": "string",
+      "description": "One-line pedagogical hook."
+    },
+    "annotation": {
+      "type": "string",
+      "description": "150 words max. What makes this groove distinctive. What not to correct. Producer voice."
+    },
+    "grooveProfile": {
+      "type": "object",
+      "required": ["swingFeel", "accentLogic", "microtimingTendencies"],
+      "properties": {
+        "swingFeel": { "type": "string" },
+        "accentLogic": { "type": "string" },
+        "microtimingTendencies": { "type": "string" }
+      }
+    },
+    "canonicalPattern": {
+      "$ref": "PatternDocument.v1.json",
+      "description": "role must be 'canonical'."
+    },
+    "variations": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 4,
+      "items": {
+        "$ref": "PatternDocument.v1.json",
+        "description": "role must be 'variation'. sourceStudyId must match this study's id."
+      }
+    },
+    "kitPairing": { "type": "string", "description": "Kit ID." },
+    "sceneTag": { "type": "string" },
+    "era": { "type": "string" },
+    "bpmRange": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "digSceneRef": { "type": ["string", "null"] },
+    "packId": { "type": ["string", "null"] }
+  }
+}

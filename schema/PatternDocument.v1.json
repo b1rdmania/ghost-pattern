@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PatternDocument",
+  "version": "1.0",
+  "type": "object",
+  "required": ["version", "id", "bpm", "timeSignature", "stepsPerBar", "bars", "lanes", "steps", "groove", "metadata"],
+  "properties": {
+    "version": { "type": "string", "const": "1.0" },
+    "id": {
+      "type": "string",
+      "description": "UUID v4 for mutations. Human-readable IDs permitted for hand-authored canonicals."
+    },
+    "sourceStudyId": {
+      "type": ["string", "null"],
+      "description": "Study containing the source pattern this was mutated from. Set on user-generated patterns only. Not the reproducibility key — use source PatternDocument.id for that. Null on canonical and variation patterns."
+    },
+    "bpm": { "type": "number", "minimum": 60, "maximum": 200 },
+    "timeSignature": {
+      "type": "object",
+      "required": ["numerator", "denominator"],
+      "properties": {
+        "numerator": { "type": "integer" },
+        "denominator": { "type": "integer" }
+      }
+    },
+    "stepsPerBar": {
+      "type": "integer",
+      "enum": [16, 32],
+      "description": "16 = 16th note grid. All Phase 1 content uses 16."
+    },
+    "bars": { "type": "integer", "minimum": 1, "maximum": 8 },
+    "lanes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "midiNote"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "midiNote": {
+            "type": "integer",
+            "description": "GM channel 10. Kick=36, Snare=38, Clap=39, CHat=42, OHat=46, Rim=37, Cymbal=49."
+          },
+          "chokeGroup": {
+            "type": ["string", "null"],
+            "description": "Lanes sharing a chokeGroup ID cut each other on trigger. e.g. 'hats'."
+          }
+        }
+      }
+    },
+    "steps": {
+      "type": "object",
+      "description": "Keyed by lane id. Array length = stepsPerBar * bars. Values: 0=off, 1=soft, 2=medium, 3=accent.",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "integer", "enum": [0, 1, 2, 3] }
+      }
+    },
+    "groove": {
+      "type": "object",
+      "required": ["presetId", "intensity"],
+      "properties": {
+        "presetId": { "type": "string" },
+        "intensity": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "seed": {
+      "type": ["integer", "null"],
+      "description": "Seeded RNG value used by mutate(). Null on hand-authored patterns."
+    },
+    "mutationParams": {
+      "type": ["object", "null"],
+      "description": "Params passed to mutate(). Null on canonical/variation patterns.",
+      "properties": {
+        "swingAmount":       { "type": "number", "minimum": 0, "maximum": 1 },
+        "ghostNoteDensity":  { "type": "number", "minimum": 0, "maximum": 1 },
+        "hatVariation":      { "type": "number", "minimum": 0, "maximum": 1 },
+        "accentShift":       { "type": "number", "minimum": -1, "maximum": 1 }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["title", "sceneTag", "role"],
+      "properties": {
+        "title": { "type": "string" },
+        "studyId": {
+          "type": ["string", "null"],
+          "description": "Study this pattern belongs to (canonical and variation patterns)."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["canonical", "variation", "user-generated"]
+        },
+        "packId": { "type": ["string", "null"] },
+        "sceneTag": { "type": "string" },
+        "era": { "type": "string" },
+        "description": { "type": ["string", "null"] },
+        "digSceneRef": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

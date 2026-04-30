@@ -1,0 +1,13 @@
+{
+  "id": "chicago-house",
+  "name": "Chicago House",
+  "sceneTag": "chicago-house",
+  "description": "909-influenced kit for Chicago house studies. Warm kick, tight snare, lazy hats.",
+  "samples": [
+    { "laneId": "kick",  "midiNote": 36, "file": "kick.wav",  "source": "TODO: Freesound CC0", "license": "CC0" },
+    { "laneId": "snare", "midiNote": 38, "file": "snare.wav", "source": "TODO: Freesound CC0", "license": "CC0" },
+    { "laneId": "clap",  "midiNote": 39, "file": "clap.wav",  "source": "TODO: Freesound CC0", "license": "CC0" },
+    { "laneId": "chat",  "midiNote": 42, "file": "chat.wav",  "source": "TODO: Freesound CC0", "license": "CC0" },
+    { "laneId": "ohat",  "midiNote": 46, "file": "ohat.wav",  "source": "TODO: Freesound CC0", "license": "CC0" }
+  ]
+}

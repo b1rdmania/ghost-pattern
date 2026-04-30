@@ -65,7 +65,7 @@ Full JSON Schema in `/schema/PatternDocument.v1.json`. Key fields:
 | Field | Type | Notes |
 |-------|------|-------|
 | `id` | string | UUID for mutations. Human-readable OK for hand-authored canonicals (e.g. `arch-chicago-house-001`). |
-| `sourceStudyId` | string \| null | GrooveStudy this pattern belongs to. Null on user-generated exports. |
+| `sourceStudyId` | string \| null | Study containing the source pattern this was mutated from. Set on `user-generated` patterns only. Not the reproducibility key — use source `PatternDocument.id` for that. Null on canonical and variation patterns. |
 | `role` | `"canonical"` \| `"variation"` \| `"user-generated"` | Determines UI treatment and mutation eligibility. |
 | `bpm` | number | 60–200. |
 | `stepsPerBar` | 16 \| 32 | 16 for Phase 1. |
