@@ -1,6 +1,7 @@
 import { useStore } from '../store'
 import { StepGrid } from './StepGrid'
 import { Transport } from './Transport'
+import { MutationPanel } from './MutationPanel'
 
 export function StudyView() {
   const activeStudy = useStore(s => s.activeStudy)
@@ -88,6 +89,9 @@ export function StudyView() {
 
       {/* Transport */}
       <Transport />
+
+      {/* Mutation panel */}
+      <MutationPanel />
     </div>
   )
 }
