@@ -87,9 +87,9 @@ const C = {
   border:     'rgba(255,255,255,0.07)',
   borderMid:  'rgba(255,255,255,0.12)',
   text:       '#ffffff',
-  textSub:    'rgba(255,255,255,0.55)',
-  textDim:    'rgba(255,255,255,0.28)',
-  textFaint:  'rgba(255,255,255,0.12)',
+  textSub:    'rgba(255,255,255,0.70)',
+  textDim:    'rgba(255,255,255,0.50)',
+  textFaint:  'rgba(255,255,255,0.32)',
 }
 
 // ─── Dot grid helper ───────────────────────────────────────────────────────────
