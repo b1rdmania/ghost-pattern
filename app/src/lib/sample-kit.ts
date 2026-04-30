@@ -6,7 +6,7 @@ const VELOCITY_GAIN: Record<number, number> = { 1: 0.25, 2: 0.55, 3: 0.85 }
 const KIT_TO_DIR: Record<string, string> = {
   'chicago-house':  '909',
   'nyc-garage':     '909',
-  'berlin-techno':  'linn',
+  'berlin-techno':  '909',
   'detroit-techno': '808',
   'uk-acid':        '808',
 }

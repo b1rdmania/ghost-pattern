@@ -58,9 +58,9 @@ const PRESETS: GroovePreset[] = [
   {
     id: 'nyc-garage-lilt',
     name: 'NYC Garage Lilt',
-    description: 'Soft swing, velocity accent on steps 5 and 13.',
-    stepOffsets:    [0, 16, 0, 16,  0, 16, 0, 16,  0, 16, 0, 16,  0, 16, 0, 16],
-    velocityOffsets:[0,  0, 0,  0,  1,  0, 0,  0,  0,  0, 0,  0,  1,  0, 0,  0],
+    description: 'Soft swing with lazy open-hat float. "And" positions drift 8 ticks behind.',
+    stepOffsets:    [0, 16, 8, 0,   0, 16, 8, 0,   0, 16, 8, 0,   0, 16, 8, 0],
+    velocityOffsets:[0,  0, 0, 0,   1,  0, 1, 0,   0,  0, 0, 0,   1,  0, 1, 0],
   },
   {
     id: 'minimal-straight',
