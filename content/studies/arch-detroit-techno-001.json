@@ -13,7 +13,7 @@
     "version": "1.0",
     "id": "arch-detroit-techno-001",
     "sourceStudyId": null,
-    "bpm": 122,
+    "bpm": 133,
     "timeSignature": {
       "numerator": 4,
       "denominator": 4
@@ -246,7 +246,7 @@
       "version": "1.0",
       "id": "var-detroit-techno-001-a",
       "sourceStudyId": "study-detroit-techno-001",
-      "bpm": 122,
+      "bpm": 133,
       "timeSignature": {
         "numerator": 4,
         "denominator": 4
@@ -478,7 +478,7 @@
       "version": "1.0",
       "id": "var-detroit-techno-001-b",
       "sourceStudyId": "study-detroit-techno-001",
-      "bpm": 122,
+      "bpm": 133,
       "timeSignature": {
         "numerator": 4,
         "denominator": 4

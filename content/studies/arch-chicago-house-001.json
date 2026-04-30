@@ -13,7 +13,7 @@
     "version": "1.0",
     "id": "arch-chicago-house-001",
     "sourceStudyId": null,
-    "bpm": 124,
+    "bpm": 128,
     "timeSignature": {
       "numerator": 4,
       "denominator": 4
@@ -246,7 +246,7 @@
       "version": "1.0",
       "id": "var-chicago-house-001-a",
       "sourceStudyId": "study-chicago-house-001",
-      "bpm": 124,
+      "bpm": 128,
       "timeSignature": {
         "numerator": 4,
         "denominator": 4

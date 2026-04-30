@@ -4,11 +4,18 @@ import { SynthKit } from './synth-kit'
 import { useStore } from '../store'
 
 let kit: SynthKit | null = null
+let currentKitId = ''
 let stepCount = 0
 let initialized = false
 
 export function getKit(): SynthKit {
-  if (!kit) kit = new SynthKit()
+  const kitId = useStore.getState().activeKitId
+  // Rebuild the synth kit when the scene changes — different drum machine per genre
+  if (!kit || kitId !== currentKitId) {
+    kit?.dispose()
+    kit = new SynthKit(kitId)
+    currentKitId = kitId
+  }
   return kit
 }
 
@@ -44,7 +51,7 @@ export function initScheduler(): void {
 }
 
 export async function startTransport(): Promise<void> {
-  await Tone.start()  // requires user gesture — must be called from onClick
+  await Tone.start()
   initScheduler()
 
   const doc = useStore.getState().playgroundDoc

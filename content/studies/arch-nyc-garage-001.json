@@ -13,7 +13,7 @@
     "version": "1.0",
     "id": "arch-nyc-garage-001",
     "sourceStudyId": null,
-    "bpm": 112,
+    "bpm": 125,
     "timeSignature": {
       "numerator": 4,
       "denominator": 4
@@ -246,7 +246,7 @@
       "version": "1.0",
       "id": "var-nyc-garage-001-a",
       "sourceStudyId": "study-nyc-garage-001",
-      "bpm": 112,
+      "bpm": 125,
       "timeSignature": {
         "numerator": 4,
         "denominator": 4
@@ -478,7 +478,7 @@
       "version": "1.0",
       "id": "var-nyc-garage-001-b",
       "sourceStudyId": "study-nyc-garage-001",
-      "bpm": 112,
+      "bpm": 125,
       "timeSignature": {
         "numerator": 4,
         "denominator": 4
