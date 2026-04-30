@@ -1,3 +1,7 @@
+node_modules/
 app/node_modules/
+dist/
 app/dist/
+.env
 .DS_Store
+app/.wrangler/

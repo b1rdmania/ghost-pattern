@@ -11,12 +11,18 @@ export function mutate(source: PatternDocument, params: MutationParams): Pattern
   const ohatId = doc.lanes.find(l => l.midiNote === 46)?.id
   const totalSteps = doc.stepsPerBar * doc.bars
 
-  // 1. ghostNoteDensity — snare and closed hat only, never kick
-  for (const laneId of [snareId, chatId]) {
+  // 1. ghostNoteDensity — hats and snare (never kick); weight toward ohat when snare is sparse
+  const snareActivity = snareId ? doc.steps[snareId].filter(v => v > 0).length : 0
+  const ghostTargets = snareActivity <= 2
+    ? [chatId, ohatId]   // Berlin-style: ride the hats
+    : [snareId, chatId]  // Chicago/Detroit/NYC: ghost snare + chat
+  for (const laneId of ghostTargets) {
     if (!laneId) continue
     for (let i = 0; i < totalSteps; i++) {
       if (doc.steps[laneId][i] === 0 && rng() < params.ghostNoteDensity) {
         doc.steps[laneId][i] = 1
+        // if we just ghosted an ohat, clear chat so it isn't immediately choked
+        if (laneId === ohatId && chatId) doc.steps[chatId][i] = 0
       }
     }
   }

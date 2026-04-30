@@ -41,7 +41,8 @@ function initScheduler(): void {
     }
 
     Tone.getDraw().schedule(() => {
-      useStore.getState().setCurrentStep(step)
+      const s = useStore.getState()
+      if (s.isPlaying) s.setCurrentStep(step)
     }, time)
 
     stepCount++

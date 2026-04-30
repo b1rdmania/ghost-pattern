@@ -225,7 +225,7 @@
       ]
     },
     "groove": {
-      "presetId": "minimal-straight",
+      "presetId": "uk-acid-shuffle",
       "intensity": 0.8
     },
     "seed": null,
@@ -458,7 +458,7 @@
         ]
       },
       "groove": {
-        "presetId": "minimal-straight",
+        "presetId": "uk-acid-shuffle",
         "intensity": 0.8
       },
       "seed": null,
@@ -690,7 +690,7 @@
         ]
       },
       "groove": {
-        "presetId": "minimal-straight",
+        "presetId": "uk-acid-shuffle",
         "intensity": 0.8
       },
       "seed": null,
