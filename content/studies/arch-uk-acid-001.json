@@ -938,5 +938,20 @@
         "title": "UK Acid Rave \u2014 Hardcore Tension"
       }
     }
-  ]
+  ],
+  "kitPairing": "uk-acid",
+  "sceneTag": "uk-acid",
+  "era": "1988-1993",
+  "bpmRange": [
+    120,
+    138
+  ],
+  "digSceneRef": "dig-scene-uk-acid",
+  "packId": "pack-uk-acid",
+  "tagline": "straight grid, maximum rave floor impact",
+  "displayStats": {
+    "swing": "0",
+    "accent": "80",
+    "shift": "0"
+  }
 }

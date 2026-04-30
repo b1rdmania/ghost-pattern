@@ -1,5 +1,7 @@
 import { useEffect, useState, CSSProperties } from 'react'
 import { useStore } from './store'
+import SplashPage from './pages/SplashPage'
+import AboutPage from './pages/AboutPage'
 import { registerPresets } from './lib/groove'
 import { startTransport, stopTransport, syncBpm } from './lib/scheduler'
 import { downloadMIDI } from './lib/midi'
@@ -136,6 +138,15 @@ function useIsMobile() {
 // ─── Main app ──────────────────────────────────────────────────────────────────
 
 export default function App() {
+  const [page, setPage] = useState<'splash' | 'app' | 'about'>('splash')
+
+  if (page === 'splash') {
+    return <SplashPage onEnter={() => setPage('app')} onAbout={() => setPage('about')} />
+  }
+  if (page === 'about') {
+    return <AboutPage onBack={() => setPage('app')} />
+  }
+
   const { loadContent, openStudy } = useStore()
 
   // store slices
@@ -442,6 +453,11 @@ export default function App() {
                 </button>
               )
             })}
+            <button
+              onClick={() => { setMenuOpen(false); setPage('about') }}
+              style={{ display: 'flex', alignItems: 'center', width: '100%', textAlign: 'left', background: 'transparent', border: 'none', borderLeft: '3px solid transparent', color: C.textDim, fontSize: 13, fontWeight: 400, letterSpacing: 0.5, padding: '18px 20px', cursor: 'pointer' }}>
+              About
+            </button>
           </div>
         )}
 
@@ -496,6 +512,14 @@ export default function App() {
           <div style={{ padding: '0 20px 10px', fontSize: 9, letterSpacing: 2.5, textTransform: 'uppercase', color: C.textDim, fontWeight: 500 }}>Scenes</div>
           <SceneList />
         </nav>
+        <button
+          onClick={() => setPage('about')}
+          style={{ margin: '0 16px 8px', background: 'transparent', border: 'none', color: C.textDim, fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', cursor: 'pointer', textAlign: 'left', padding: '12px 4px', fontFamily: 'inherit', transition: 'color 0.2s' }}
+          onMouseEnter={e => (e.currentTarget.style.color = C.text)}
+          onMouseLeave={e => (e.currentTarget.style.color = C.textDim)}
+        >
+          About
+        </button>
       </aside>
 
       {/* Main */}
