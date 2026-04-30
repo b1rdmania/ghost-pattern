@@ -420,8 +420,9 @@ export default function App() {
             <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: 3, textTransform: 'uppercase', color: C.text }}>Ghost </span>
             <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: 3, textTransform: 'uppercase', color: C.accent }}>Pattern</span>
           </div>
-          <button onClick={() => setMenuOpen(o => !o)} style={{ background: 'transparent', border: `1px solid ${C.border}`, borderRadius: 3, color: menuOpen ? C.accent : C.textDim, padding: '8px 12px', cursor: 'pointer', fontSize: 16, lineHeight: 1 }}>
-            {menuOpen ? '✕' : '☰'}
+          <button onClick={() => setMenuOpen(o => !o)} style={{ display: 'flex', alignItems: 'center', gap: 8, background: menuOpen ? C.accentDim : 'transparent', border: `1px solid ${menuOpen ? C.accent : C.border}`, borderRadius: 4, color: menuOpen ? C.accent : C.textSub, padding: '10px 16px', cursor: 'pointer', fontSize: 18, lineHeight: 1 }}>
+            <span>{menuOpen ? '✕' : '☰'}</span>
+            <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: 2, textTransform: 'uppercase' }}>Scenes</span>
           </button>
         </div>
 
