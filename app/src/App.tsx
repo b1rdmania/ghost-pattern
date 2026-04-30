@@ -399,7 +399,7 @@ export default function App() {
       {studyList.map(study => {
         const isActive = study.id === activeStudy.id
         return (
-          <button key={study.id} onClick={() => { openStudy(study.id); onSelect?.() }}
+          <button key={study.id} onClick={() => { if (isPlaying) stopTransport(); openStudy(study.id); onSelect?.() }}
             style={{ display: 'block', width: '100%', textAlign: 'left', background: isActive ? C.accentDim : 'transparent', border: 'none', borderLeft: `2px solid ${isActive ? C.accent : 'transparent'}`, color: isActive ? C.accent : C.textDim, fontSize: 10, fontWeight: isActive ? 600 : 400, letterSpacing: 1.5, textTransform: 'uppercase', padding: isMobile ? '14px 20px' : '8px 20px', cursor: 'pointer', lineHeight: 1.5, whiteSpace: 'pre-line', transition: 'all 0.15s' }}>
             {study.sceneTag.replace(/-/g, '\n')}
           </button>
@@ -433,7 +433,7 @@ export default function App() {
               const isActive = study.id === activeStudy.id
               return (
                 <button key={study.id}
-                  onClick={() => { openStudy(study.id); setMenuOpen(false) }}
+                  onClick={() => { if (isPlaying) stopTransport(); openStudy(study.id); setMenuOpen(false) }}
                   style={{ display: 'flex', alignItems: 'center', width: '100%', textAlign: 'left', background: isActive ? C.accentDim : 'transparent', border: 'none', borderLeft: `3px solid ${isActive ? C.accent : 'transparent'}`, color: isActive ? C.accent : C.textSub, fontSize: 13, fontWeight: isActive ? 600 : 400, letterSpacing: 0.5, padding: '18px 20px', cursor: 'pointer', transition: 'background 0.1s' }}>
                   {study.title.split('—')[0].trim()}
                 </button>
