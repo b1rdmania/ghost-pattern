@@ -143,6 +143,8 @@ export default function App() {
   const undo                 = useStore(s => s.undo)
 
   // mutation panel local state
+  const [kitLoading, setKitLoading] = useState(false)
+
   const [params, setParams] = useState<Omit<MutationParams, 'seed'>>({
     swingAmount: 0, ghostNoteDensity: 0, hatVariation: 0, accentShift: 0,
   })
@@ -167,8 +169,12 @@ export default function App() {
 
   // ── Handlers ──────────────────────────────────────────────────────────────
   async function handlePlayStop() {
-    if (isPlaying) stopTransport()
-    else await startTransport()
+    if (isPlaying) {
+      stopTransport()
+    } else {
+      setKitLoading(true)
+      try { await startTransport() } finally { setKitLoading(false) }
+    }
   }
 
   function handleBpmChange(raw: string) {
@@ -455,21 +461,22 @@ export default function App() {
             {/* Play / Stop */}
             <button
               onClick={handlePlayStop}
+              disabled={kitLoading}
               style={{
-                background: isPlaying ? 'transparent' : C.accent,
-                color: isPlaying ? C.accent : '#000',
-                border: `1px solid ${isPlaying ? C.accent : 'transparent'}`,
+                background: isPlaying ? 'transparent' : kitLoading ? C.bgDeck : C.accent,
+                color: isPlaying ? C.accent : kitLoading ? C.textDim : '#000',
+                border: `1px solid ${isPlaying ? C.accent : kitLoading ? C.border : 'transparent'}`,
                 borderRadius: 3,
                 padding: '6px 20px',
                 fontSize: 10,
                 fontWeight: 600,
                 letterSpacing: 2,
                 textTransform: 'uppercase',
-                cursor: 'pointer',
+                cursor: kitLoading ? 'default' : 'pointer',
                 transition: 'all 0.15s',
               }}
             >
-              {isPlaying ? 'Stop' : 'Play'}
+              {kitLoading ? 'Loading' : isPlaying ? 'Stop' : 'Play'}
             </button>
 
             {/* Divider */}

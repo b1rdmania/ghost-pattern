@@ -1,25 +1,24 @@
 import * as Tone from 'tone'
 import { grooveTimingOffsetSeconds, grooveVelocity } from './groove'
-import { SynthKit } from './synth-kit'
+import { SampleKit } from './sample-kit'
 import { useStore } from '../store'
 
-let kit: SynthKit | null = null
+let kit: SampleKit | null = null
 let currentKitId = ''
 let stepCount = 0
 let initialized = false
 
-export function getKit(): SynthKit {
+function getKit(): SampleKit {
   const kitId = useStore.getState().activeKitId
-  // Rebuild the synth kit when the scene changes — different drum machine per genre
   if (!kit || kitId !== currentKitId) {
     kit?.dispose()
-    kit = new SynthKit(kitId)
+    kit = new SampleKit(kitId)
     currentKitId = kitId
   }
   return kit
 }
 
-export function initScheduler(): void {
+function initScheduler(): void {
   if (initialized) return
   initialized = true
 
@@ -41,7 +40,6 @@ export function initScheduler(): void {
       getKit().trigger(lane.id, time + offset, velocity)
     }
 
-    // Schedule UI update to coincide with when the audio fires
     Tone.getDraw().schedule(() => {
       useStore.getState().setCurrentStep(step)
     }, time)
@@ -52,15 +50,12 @@ export function initScheduler(): void {
 
 export async function startTransport(): Promise<void> {
   await Tone.start()
-  initScheduler()
 
-  const doc = useStore.getState().playgroundDoc
-  if (doc) Tone.Transport.bpm.value = doc.bpm
+  const kit = getKit()
 
-  // Wire choke groups from current study lanes
+  // Wire choke groups before loading so the kit is fully configured
   const study = useStore.getState().activeStudy
   if (study) {
-    const kitEngine = getKit()
     const groups: Record<string, string[]> = {}
     for (const lane of study.canonicalPattern.lanes) {
       if (lane.chokeGroup) {
@@ -69,9 +64,17 @@ export async function startTransport(): Promise<void> {
       }
     }
     for (const [groupId, laneIds] of Object.entries(groups)) {
-      kitEngine.registerChokeGroup(groupId, laneIds)
+      kit.registerChokeGroup(groupId, laneIds)
     }
   }
+
+  // Wait for sample buffers to finish loading before starting the clock
+  await kit.load()
+
+  initScheduler()
+
+  const doc = useStore.getState().playgroundDoc
+  if (doc) Tone.Transport.bpm.value = doc.bpm
 
   Tone.Transport.start()
   useStore.getState().setIsPlaying(true)
