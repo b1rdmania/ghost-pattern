@@ -160,6 +160,12 @@ export default function App() {
     if (!activeStudy) openStudy('study-chicago-house-001')
   }, [activeStudy, openStudy])
 
+  // ── Reset sliders when pattern source changes (scene switch or variation) ──
+  useEffect(() => {
+    setParams({ swingAmount: 0, ghostNoteDensity: 0, hatVariation: 0, accentShift: 0 })
+    setSeed(randomSeed())
+  }, [basePattern?.id])
+
   // ── Live mutation ─────────────────────────────────────────────────────────
   useEffect(() => {
     if (!basePattern) return
