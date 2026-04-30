@@ -32,22 +32,22 @@ export class SynthKit {
     }).toDestination()
 
     const chat = new Tone.MetalSynth({
-      frequency: 400,
       envelope: { attack: 0.001, decay: 0.05, release: 0.01 },
       harmonicity: 5.1,
       modulationIndex: 32,
       resonance: 4000,
       octaves: 1.5,
     }).toDestination()
+    chat.frequency.value = 400
 
     const ohat = new Tone.MetalSynth({
-      frequency: 400,
       envelope: { attack: 0.001, decay: 0.3, release: 0.1 },
       harmonicity: 5.1,
       modulationIndex: 32,
       resonance: 4000,
       octaves: 1.5,
     }).toDestination()
+    ohat.frequency.value = 400
 
     // GM note → lane id
     this.synths.set('kick',  kick)

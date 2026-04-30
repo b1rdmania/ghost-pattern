@@ -35,7 +35,7 @@ export function exportMIDI(doc: PatternDocument): Uint8Array {
 
 export function downloadMIDI(doc: PatternDocument, filename = 'ghost-pattern.mid'): void {
   const bytes = exportMIDI(doc)
-  const blob = new Blob([bytes], { type: 'audio/midi' })
+  const blob = new Blob([bytes.buffer as ArrayBuffer], { type: 'audio/midi' })
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url

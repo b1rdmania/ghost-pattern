@@ -18,20 +18,22 @@ export function Transport() {
   }
 
   function handleBpmChange(raw: string) {
+    if (!playgroundDoc) return
     const bpm = parseInt(raw, 10)
     if (isNaN(bpm) || bpm < 60 || bpm > 200) return
-    setPlaygroundDoc({ ...playgroundDoc, bpm })
+    setPlaygroundDoc({ ...playgroundDoc, bpm } as typeof playgroundDoc)
     syncBpm(bpm)
   }
 
   function handleBarsChange(bars: number) {
+    if (!playgroundDoc) return
     const totalSteps = playgroundDoc.stepsPerBar * bars
     const newSteps: typeof playgroundDoc.steps = {}
     for (const lane of playgroundDoc.lanes) {
       const existing = playgroundDoc.steps[lane.id] ?? []
       newSteps[lane.id] = Array.from({ length: totalSteps }, (_, i) => existing[i] ?? 0)
     }
-    setPlaygroundDoc({ ...playgroundDoc, bars, steps: newSteps })
+    setPlaygroundDoc({ ...playgroundDoc, bars, steps: newSteps } as typeof playgroundDoc)
   }
 
   return (

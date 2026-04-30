@@ -52,6 +52,8 @@ export interface GrooveStudy {
   title: string
   subtitle: string
   annotation: string
+  tagline: string
+  displayStats: { swing: string; accent: string; shift: string }
   grooveProfile: {
     swingFeel: string
     accentLogic: string
