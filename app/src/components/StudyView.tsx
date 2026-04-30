@@ -5,6 +5,7 @@ import { MutationPanel } from './MutationPanel'
 
 export function StudyView() {
   const activeStudy = useStore(s => s.activeStudy)
+  const basePattern = useStore(s => s.basePattern)
   const playgroundDoc = useStore(s => s.playgroundDoc)
   const setPlaygroundDoc = useStore(s => s.setPlaygroundDoc)
   const loadVariation = useStore(s => s.loadVariation)
@@ -56,10 +57,10 @@ export function StudyView() {
         </div>
       </div>
 
-      {/* Variation switcher */}
+      {/* Variation switcher — highlights based on basePattern, not playgroundDoc */}
       <div style={{ display: 'flex', gap: 8, marginBottom: 24 }}>
         {allPatterns.map((pattern, i) => {
-          const isActive = pattern.id === playgroundDoc.id
+          const isActive = pattern.id === basePattern?.id
           const label = i === 0 ? 'Canonical' : `Variation ${i}`
           return (
             <button

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useStore } from '../store'
 import { mutate } from '../lib/mutate'
 import type { MutationParams } from '../types'
@@ -48,28 +48,36 @@ function randomSeed() {
 }
 
 export function MutationPanel() {
+  const basePattern = useStore(s => s.basePattern)
   const playgroundDoc = useStore(s => s.playgroundDoc)
-  const setPlaygroundDoc = useStore(s => s.setPlaygroundDoc)
+  const setPlaygroundDocLive = useStore(s => s.setPlaygroundDocLive)
+  const addToHistory = useStore(s => s.addToHistory)
   const undo = useStore(s => s.undo)
   const historyLength = useStore(s => s.history.length)
 
   const [params, setParams] = useState<Omit<MutationParams, 'seed'>>({
-    swingAmount: 0.7,
-    ghostNoteDensity: 0.15,
-    hatVariation: 0.1,
+    swingAmount: 0,
+    ghostNoteDensity: 0,
+    hatVariation: 0,
     accentShift: 0,
   })
   const [seed, setSeed] = useState(randomSeed)
+
+  // Apply mutation live whenever params, seed, or base pattern changes
+  useEffect(() => {
+    if (!basePattern) return
+    const result = mutate(basePattern, { ...params, seed })
+    setPlaygroundDocLive(result)
+  }, [params, seed, basePattern, setPlaygroundDocLive])
 
   function setParam(key: keyof typeof params, value: number) {
     setParams(p => ({ ...p, [key]: value }))
   }
 
-  function handleApply() {
-    if (!playgroundDoc) return
-    const result = mutate(playgroundDoc, { ...params, seed })
-    setPlaygroundDoc(result)
-    setSeed(randomSeed())  // auto-advance seed for next apply
+  function handleNewSeed() {
+    // Commit current state to history before rolling to a new seed
+    if (playgroundDoc) addToHistory(playgroundDoc)
+    setSeed(randomSeed())
   }
 
   return (
@@ -116,7 +124,7 @@ export function MutationPanel() {
         ))}
       </div>
 
-      {/* Seed row + actions */}
+      {/* Seed row + undo */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <span style={{ fontSize: 10, color: '#333', letterSpacing: 1, textTransform: 'uppercase' }}>Seed</span>
@@ -136,8 +144,8 @@ export function MutationPanel() {
             }}
           />
           <button
-            onClick={() => setSeed(randomSeed())}
-            title="Randomise seed"
+            onClick={handleNewSeed}
+            title="New seed — commits current state to history"
             style={{
               background: 'transparent',
               border: '1px solid #2a2a2a',
@@ -173,24 +181,6 @@ export function MutationPanel() {
               ← Undo
             </button>
           )}
-          <button
-            onClick={handleApply}
-            style={{
-              background: '#4ade80',
-              border: 'none',
-              borderRadius: 3,
-              color: '#000',
-              fontSize: 11,
-              fontFamily: 'monospace',
-              letterSpacing: 2,
-              textTransform: 'uppercase',
-              fontWeight: 700,
-              padding: '6px 20px',
-              cursor: 'pointer',
-            }}
-          >
-            Apply
-          </button>
         </div>
       </div>
     </div>

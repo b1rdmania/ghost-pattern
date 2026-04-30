@@ -1,0 +1,128 @@
+{
+  "id": "study-berlin-techno-001",
+  "version": "1.0",
+  "title": "Berlin Techno — Machine Discipline",
+  "subtitle": "Repetition as ritual, 1993–1998",
+  "annotation": "The Berlin template is built on restraint. Kick drives every beat without variation — not because there are no ideas, but because the idea is the pulse. Hats run relentless 16th notes at the same low velocity: not a groove, a texture. The single ghost snare in bar 2 is structural — it marks the loop boundary without drawing attention. What to understand: the emptiness is the arrangement. Tension comes from the contrast between the mechanical hat layer and the weight of the kick. Nothing should be tightened, humanised, or softened. The pattern should feel like a machine that has been running for a very long time.",
+  "grooveProfile": {
+    "swingFeel": "Perfectly straight. No swing, no push. The grid is the feel.",
+    "accentLogic": "Kick carries all weight. Hat is texture, not rhythm. No accent anywhere in the pattern.",
+    "microtimingTendencies": "Machine-tight. Any humanisation is a mistake. Zero timing variation is the goal."
+  },
+  "canonicalPattern": {
+    "version": "1.0",
+    "id": "arch-berlin-techno-001",
+    "sourceStudyId": null,
+    "bpm": 133,
+    "timeSignature": { "numerator": 4, "denominator": 4 },
+    "stepsPerBar": 16,
+    "bars": 2,
+    "lanes": [
+      { "id": "kick",  "name": "Kick",       "midiNote": 36, "chokeGroup": null },
+      { "id": "snare", "name": "Snare",       "midiNote": 38, "chokeGroup": null },
+      { "id": "clap",  "name": "Clap",        "midiNote": 39, "chokeGroup": null },
+      { "id": "chat",  "name": "Closed Hat",  "midiNote": 42, "chokeGroup": "hats" },
+      { "id": "ohat",  "name": "Open Hat",    "midiNote": 46, "chokeGroup": "hats" }
+    ],
+    "steps": {
+      "kick":  [3,0,0,0, 3,0,0,0, 3,0,0,0, 3,0,0,0,  3,0,0,0, 3,0,0,0, 3,0,0,0, 3,0,0,0],
+      "snare": [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0, 1,0,0,0, 0,0,0,0],
+      "clap":  [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0],
+      "chat":  [1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1,  1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1],
+      "ohat":  [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0]
+    },
+    "groove": { "presetId": "minimal-straight", "intensity": 0.8 },
+    "seed": null,
+    "mutationParams": null,
+    "metadata": {
+      "title": "Berlin Techno — Machine Discipline",
+      "studyId": "study-berlin-techno-001",
+      "role": "canonical",
+      "packId": "pack-berlin-techno",
+      "sceneTag": "berlin-techno",
+      "era": "1993-1998",
+      "description": null,
+      "digSceneRef": "dig-scene-berlin-techno"
+    }
+  },
+  "variations": [
+    {
+      "version": "1.0",
+      "id": "var-berlin-techno-001-a",
+      "sourceStudyId": "study-berlin-techno-001",
+      "bpm": 133,
+      "timeSignature": { "numerator": 4, "denominator": 4 },
+      "stepsPerBar": 16,
+      "bars": 2,
+      "lanes": [
+        { "id": "kick",  "name": "Kick",       "midiNote": 36, "chokeGroup": null },
+        { "id": "snare", "name": "Snare",       "midiNote": 38, "chokeGroup": null },
+        { "id": "clap",  "name": "Clap",        "midiNote": 39, "chokeGroup": null },
+        { "id": "chat",  "name": "Closed Hat",  "midiNote": 42, "chokeGroup": "hats" },
+        { "id": "ohat",  "name": "Open Hat",    "midiNote": 46, "chokeGroup": "hats" }
+      ],
+      "steps": {
+        "kick":  [3,0,0,0, 3,0,0,0, 3,0,0,0, 3,0,0,0,  3,0,0,0, 3,0,0,0, 3,0,0,0, 3,0,0,0],
+        "snare": [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0, 1,0,0,0, 0,0,0,0],
+        "clap":  [0,0,0,0, 0,0,0,0, 2,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0, 2,0,0,0, 0,0,0,0],
+        "chat":  [1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1,  1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1],
+        "ohat":  [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0]
+      },
+      "groove": { "presetId": "minimal-straight", "intensity": 0.8 },
+      "seed": null,
+      "mutationParams": null,
+      "metadata": {
+        "title": "Berlin Techno — Machine Discipline (Clap Accent)",
+        "studyId": "study-berlin-techno-001",
+        "role": "variation",
+        "packId": "pack-berlin-techno",
+        "sceneTag": "berlin-techno",
+        "era": "1993-1998",
+        "description": "A dry clap on beat 3 of each bar. One new element introduces forward motion without breaking the pattern's austerity. The clap does not humanise — it marks.",
+        "digSceneRef": "dig-scene-berlin-techno"
+      }
+    },
+    {
+      "version": "1.0",
+      "id": "var-berlin-techno-001-b",
+      "sourceStudyId": "study-berlin-techno-001",
+      "bpm": 133,
+      "timeSignature": { "numerator": 4, "denominator": 4 },
+      "stepsPerBar": 16,
+      "bars": 2,
+      "lanes": [
+        { "id": "kick",  "name": "Kick",       "midiNote": 36, "chokeGroup": null },
+        { "id": "snare", "name": "Snare",       "midiNote": 38, "chokeGroup": null },
+        { "id": "clap",  "name": "Clap",        "midiNote": 39, "chokeGroup": null },
+        { "id": "chat",  "name": "Closed Hat",  "midiNote": 42, "chokeGroup": "hats" },
+        { "id": "ohat",  "name": "Open Hat",    "midiNote": 46, "chokeGroup": "hats" }
+      ],
+      "steps": {
+        "kick":  [3,0,0,0, 3,0,0,0, 3,0,0,0, 3,0,0,0,  3,0,0,0, 3,0,0,0, 3,0,0,0, 3,0,0,0],
+        "snare": [0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0,  0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0],
+        "clap":  [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0],
+        "chat":  [1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1,  1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1],
+        "ohat":  [0,0,0,0, 0,0,0,1, 0,0,0,0, 0,0,0,1,  0,0,0,0, 0,0,0,1, 0,0,0,0, 0,0,0,1]
+      },
+      "groove": { "presetId": "minimal-straight", "intensity": 0.8 },
+      "seed": null,
+      "mutationParams": null,
+      "metadata": {
+        "title": "Berlin Techno — Machine Discipline (Snare + Open Hat)",
+        "studyId": "study-berlin-techno-001",
+        "role": "variation",
+        "packId": "pack-berlin-techno",
+        "sceneTag": "berlin-techno",
+        "era": "1993-1998",
+        "description": "Snare emerges on 2 and 4. Open hat on the 'a' of every beat releases pressure built by the kick. This is the variation that makes the original feel sparse in comparison.",
+        "digSceneRef": "dig-scene-berlin-techno"
+      }
+    }
+  ],
+  "kitPairing": "berlin-techno",
+  "sceneTag": "berlin-techno",
+  "era": "1993-1998",
+  "bpmRange": [130, 140],
+  "digSceneRef": "dig-scene-berlin-techno",
+  "packId": "pack-berlin-techno"
+}

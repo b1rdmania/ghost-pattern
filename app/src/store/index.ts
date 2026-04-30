@@ -11,6 +11,7 @@ interface AppState {
 
   // session
   activeStudy: GrooveStudy | null
+  basePattern: PatternDocument | null   // source for mutations (selected canonical/variation)
   playgroundDoc: PatternDocument | null
   activeKitId: string
   isPlaying: boolean
@@ -22,6 +23,8 @@ interface AppState {
   openStudy: (studyId: string) => void
   loadVariation: (doc: PatternDocument) => void
   setPlaygroundDoc: (doc: PatternDocument) => void
+  setPlaygroundDocLive: (doc: PatternDocument) => void
+  addToHistory: (doc: PatternDocument) => void
   setIsPlaying: (v: boolean) => void
   setCurrentStep: (step: number) => void
   setActiveKitId: (kitId: string) => void
@@ -33,6 +36,7 @@ export const useStore = create<AppState>((set, get) => ({
   studies: {},
   groovePresets: [],
   activeStudy: null,
+  basePattern: null,
   playgroundDoc: null,
   activeKitId: 'chicago-house',
   isPlaying: false,
@@ -50,6 +54,7 @@ export const useStore = create<AppState>((set, get) => ({
     if (!study) return
     set({
       activeStudy: study,
+      basePattern: study.canonicalPattern,
       playgroundDoc: study.canonicalPattern,
       activeKitId: study.kitPairing,
       history: [],
@@ -61,6 +66,7 @@ export const useStore = create<AppState>((set, get) => ({
   loadVariation: (doc) => {
     const { playgroundDoc, history } = get()
     set({
+      basePattern: doc,
       playgroundDoc: doc,
       history: playgroundDoc
         ? [...history.slice(-(MAX_HISTORY - 1)), playgroundDoc]
@@ -76,6 +82,14 @@ export const useStore = create<AppState>((set, get) => ({
         ? [...history.slice(-(MAX_HISTORY - 1)), playgroundDoc]
         : history,
     })
+  },
+
+  // Updates playgroundDoc without touching history — used by real-time mutation sliders
+  setPlaygroundDocLive: (doc) => set({ playgroundDoc: doc }),
+
+  addToHistory: (doc) => {
+    const { history } = get()
+    set({ history: [...history.slice(-(MAX_HISTORY - 1)), doc] })
   },
 
   setIsPlaying: (v) => set({ isPlaying: v }),

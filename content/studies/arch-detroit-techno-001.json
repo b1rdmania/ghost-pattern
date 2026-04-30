@@ -1,0 +1,128 @@
+{
+  "id": "study-detroit-techno-001",
+  "version": "1.0",
+  "title": "Detroit Techno — Soul Engine",
+  "subtitle": "The machine that remembers it was built by humans",
+  "annotation": "Detroit techno shares the four-on-the-floor foundation with its Chicago cousin but carries something Chicago doesn't: a conversation between the kick and everything else. The snare and clap sit together on 2 and 4, doubling each other — one synthetic, one acoustic, two textures. Hats swing between a downbeat accent and a quiet off-beat ghost, creating the internal rhythm that makes Detroit feel like it breathes. The open hat landing on the 'a' of beat 3 each bar is the pattern's character moment — not a fill, a signature. The pickup kick anticipating beat 4 in bar 1 is what separates a pattern you feel from one you count.",
+  "grooveProfile": {
+    "swingFeel": "Tight 20-tick push on off-beats. More mechanical than Chicago, more human than Berlin.",
+    "accentLogic": "Kick and hat share the accent conversation. Snare and clap reinforce 2 and 4 without soloing.",
+    "microtimingTendencies": "Hat downbeats arrive with authority. Off-beats defer. The open hat sits slightly behind the grid."
+  },
+  "canonicalPattern": {
+    "version": "1.0",
+    "id": "arch-detroit-techno-001",
+    "sourceStudyId": null,
+    "bpm": 130,
+    "timeSignature": { "numerator": 4, "denominator": 4 },
+    "stepsPerBar": 16,
+    "bars": 2,
+    "lanes": [
+      { "id": "kick",  "name": "Kick",       "midiNote": 36, "chokeGroup": null },
+      { "id": "snare", "name": "Snare",       "midiNote": 38, "chokeGroup": null },
+      { "id": "clap",  "name": "Clap",        "midiNote": 39, "chokeGroup": null },
+      { "id": "chat",  "name": "Closed Hat",  "midiNote": 42, "chokeGroup": "hats" },
+      { "id": "ohat",  "name": "Open Hat",    "midiNote": 46, "chokeGroup": "hats" }
+    ],
+    "steps": {
+      "kick":  [3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,0,0,  3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,0,0],
+      "snare": [0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0,  0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0],
+      "clap":  [0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0,  0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0],
+      "chat":  [2,0,1,0, 2,0,1,0, 2,0,1,0, 2,0,1,0,  2,0,1,0, 2,0,1,0, 2,0,1,0, 2,0,1,0],
+      "ohat":  [0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0,  0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0]
+    },
+    "groove": { "presetId": "detroit-house-swing", "intensity": 0.6 },
+    "seed": null,
+    "mutationParams": null,
+    "metadata": {
+      "title": "Detroit Techno — Soul Engine",
+      "studyId": "study-detroit-techno-001",
+      "role": "canonical",
+      "packId": "pack-detroit-techno",
+      "sceneTag": "detroit-techno",
+      "era": "1988-1994",
+      "description": null,
+      "digSceneRef": "dig-scene-detroit-techno"
+    }
+  },
+  "variations": [
+    {
+      "version": "1.0",
+      "id": "var-detroit-techno-001-a",
+      "sourceStudyId": "study-detroit-techno-001",
+      "bpm": 130,
+      "timeSignature": { "numerator": 4, "denominator": 4 },
+      "stepsPerBar": 16,
+      "bars": 2,
+      "lanes": [
+        { "id": "kick",  "name": "Kick",       "midiNote": 36, "chokeGroup": null },
+        { "id": "snare", "name": "Snare",       "midiNote": 38, "chokeGroup": null },
+        { "id": "clap",  "name": "Clap",        "midiNote": 39, "chokeGroup": null },
+        { "id": "chat",  "name": "Closed Hat",  "midiNote": 42, "chokeGroup": "hats" },
+        { "id": "ohat",  "name": "Open Hat",    "midiNote": 46, "chokeGroup": "hats" }
+      ],
+      "steps": {
+        "kick":  [3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,1,0,  3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,1,0],
+        "snare": [0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0,  0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0],
+        "clap":  [0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0,  0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0],
+        "chat":  [2,0,1,0, 2,0,1,0, 2,0,1,0, 2,0,1,0,  2,0,1,0, 2,0,1,0, 2,0,1,0, 2,0,1,0],
+        "ohat":  [0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0,  0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0]
+      },
+      "groove": { "presetId": "detroit-house-swing", "intensity": 0.6 },
+      "seed": null,
+      "mutationParams": null,
+      "metadata": {
+        "title": "Detroit Techno — Soul Engine (Kick Anticipation)",
+        "studyId": "study-detroit-techno-001",
+        "role": "variation",
+        "packId": "pack-detroit-techno",
+        "sceneTag": "detroit-techno",
+        "era": "1988-1994",
+        "description": "A pickup kick on the '+' of beat 4 in both bars — step 14 and step 30. The kick begins to anticipate the downbeat, creating a slight forward lean that the canonical pattern withholds.",
+        "digSceneRef": "dig-scene-detroit-techno"
+      }
+    },
+    {
+      "version": "1.0",
+      "id": "var-detroit-techno-001-b",
+      "sourceStudyId": "study-detroit-techno-001",
+      "bpm": 130,
+      "timeSignature": { "numerator": 4, "denominator": 4 },
+      "stepsPerBar": 16,
+      "bars": 2,
+      "lanes": [
+        { "id": "kick",  "name": "Kick",       "midiNote": 36, "chokeGroup": null },
+        { "id": "snare", "name": "Snare",       "midiNote": 38, "chokeGroup": null },
+        { "id": "clap",  "name": "Clap",        "midiNote": 39, "chokeGroup": null },
+        { "id": "chat",  "name": "Closed Hat",  "midiNote": 42, "chokeGroup": "hats" },
+        { "id": "ohat",  "name": "Open Hat",    "midiNote": 46, "chokeGroup": "hats" }
+      ],
+      "steps": {
+        "kick":  [3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,0,0,  3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,0,0],
+        "snare": [0,0,0,0, 2,0,0,1, 0,0,0,0, 2,0,0,0,  0,0,0,0, 2,0,0,1, 0,0,0,0, 2,0,0,0],
+        "clap":  [0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0,  0,0,0,0, 2,0,0,0, 0,0,0,0, 2,0,0,0],
+        "chat":  [2,0,0,0, 0,0,1,0, 2,0,0,0, 0,0,1,0,  2,0,0,0, 0,0,1,0, 2,0,0,0, 0,0,1,0],
+        "ohat":  [0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0,  0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0]
+      },
+      "groove": { "presetId": "detroit-house-swing", "intensity": 0.6 },
+      "seed": null,
+      "mutationParams": null,
+      "metadata": {
+        "title": "Detroit Techno — Soul Engine (Ghost Snare)",
+        "studyId": "study-detroit-techno-001",
+        "role": "variation",
+        "packId": "pack-detroit-techno",
+        "sceneTag": "detroit-techno",
+        "era": "1988-1994",
+        "description": "Ghost snare appears on the 'a' after beats 2 and 3. Hat pattern opens up — accent on 1, ghost on the '+' of each beat. This is where Detroit starts sounding like a drum kit, not a machine.",
+        "digSceneRef": "dig-scene-detroit-techno"
+      }
+    }
+  ],
+  "kitPairing": "detroit-techno",
+  "sceneTag": "detroit-techno",
+  "era": "1988-1994",
+  "bpmRange": [128, 136],
+  "digSceneRef": "dig-scene-detroit-techno",
+  "packId": "pack-detroit-techno"
+}

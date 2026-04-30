@@ -1,0 +1,128 @@
+{
+  "id": "study-nyc-garage-001",
+  "version": "1.0",
+  "title": "NYC Garage — Body and Soul",
+  "subtitle": "The rhythm that made the Paradise Garage move",
+  "annotation": "The NYC garage pattern is built around the interplay between the clap and the open hat. The clap lands hard on 2 and 4 — this is not a Chicago snare, it is a statement. The open hat rides on the 'a' of every single beat, a relentless forward motion that the closed hat 8ths alone cannot provide. This is the pattern that sounds simple until you try to replace the open hat with anything else: without it, the groove collapses. The kick stays on every downbeat, not driving, accompanying. The entire pattern is in service of the dance floor, not the producer's cleverness.",
+  "grooveProfile": {
+    "swingFeel": "Soft 16-tick push. The off-beats lean into the bar without rushing. Lilt, not swing.",
+    "accentLogic": "Clap owns beats 2 and 4. Open hat creates continuous motion. Kick serves the room.",
+    "microtimingTendencies": "Open hats arrive slightly behind the grid. The clap is spot-on. The contrast creates the feel."
+  },
+  "canonicalPattern": {
+    "version": "1.0",
+    "id": "arch-nyc-garage-001",
+    "sourceStudyId": null,
+    "bpm": 122,
+    "timeSignature": { "numerator": 4, "denominator": 4 },
+    "stepsPerBar": 16,
+    "bars": 2,
+    "lanes": [
+      { "id": "kick",  "name": "Kick",       "midiNote": 36, "chokeGroup": null },
+      { "id": "snare", "name": "Snare",       "midiNote": 38, "chokeGroup": null },
+      { "id": "clap",  "name": "Clap",        "midiNote": 39, "chokeGroup": null },
+      { "id": "chat",  "name": "Closed Hat",  "midiNote": 42, "chokeGroup": "hats" },
+      { "id": "ohat",  "name": "Open Hat",    "midiNote": 46, "chokeGroup": "hats" }
+    ],
+    "steps": {
+      "kick":  [3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,0,0,  3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,0,0],
+      "snare": [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0],
+      "clap":  [0,0,0,0, 3,0,0,0, 0,0,0,0, 3,0,0,0,  0,0,0,0, 3,0,0,0, 0,0,0,0, 3,0,0,0],
+      "chat":  [1,0,1,0, 1,0,1,0, 1,0,1,0, 1,0,1,0,  1,0,1,0, 1,0,1,0, 1,0,1,0, 1,0,1,0],
+      "ohat":  [0,0,0,1, 0,0,0,1, 0,0,0,1, 0,0,0,1,  0,0,0,1, 0,0,0,1, 0,0,0,1, 0,0,0,1]
+    },
+    "groove": { "presetId": "nyc-garage-lilt", "intensity": 0.8 },
+    "seed": null,
+    "mutationParams": null,
+    "metadata": {
+      "title": "NYC Garage — Body and Soul",
+      "studyId": "study-nyc-garage-001",
+      "role": "canonical",
+      "packId": "pack-nyc-garage",
+      "sceneTag": "nyc-garage",
+      "era": "1988-1992",
+      "description": null,
+      "digSceneRef": "dig-scene-nyc-garage"
+    }
+  },
+  "variations": [
+    {
+      "version": "1.0",
+      "id": "var-nyc-garage-001-a",
+      "sourceStudyId": "study-nyc-garage-001",
+      "bpm": 122,
+      "timeSignature": { "numerator": 4, "denominator": 4 },
+      "stepsPerBar": 16,
+      "bars": 2,
+      "lanes": [
+        { "id": "kick",  "name": "Kick",       "midiNote": 36, "chokeGroup": null },
+        { "id": "snare", "name": "Snare",       "midiNote": 38, "chokeGroup": null },
+        { "id": "clap",  "name": "Clap",        "midiNote": 39, "chokeGroup": null },
+        { "id": "chat",  "name": "Closed Hat",  "midiNote": 42, "chokeGroup": "hats" },
+        { "id": "ohat",  "name": "Open Hat",    "midiNote": 46, "chokeGroup": "hats" }
+      ],
+      "steps": {
+        "kick":  [3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,0,0,  3,0,0,1, 0,0,0,0, 3,0,0,0, 0,0,0,0],
+        "snare": [0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0],
+        "clap":  [0,0,0,0, 3,0,0,0, 0,0,0,0, 3,0,0,0,  0,0,0,0, 3,0,0,0, 0,0,0,0, 3,0,0,0],
+        "chat":  [1,0,1,0, 1,0,1,0, 1,0,1,0, 1,0,1,0,  1,0,1,0, 1,0,1,0, 1,0,1,0, 1,0,1,0],
+        "ohat":  [0,0,0,1, 0,0,0,1, 0,0,0,1, 0,0,0,1,  0,0,0,1, 0,0,0,1, 0,0,0,1, 0,0,0,1]
+      },
+      "groove": { "presetId": "nyc-garage-lilt", "intensity": 0.8 },
+      "seed": null,
+      "mutationParams": null,
+      "metadata": {
+        "title": "NYC Garage — Body and Soul (Kick Pickup)",
+        "studyId": "study-nyc-garage-001",
+        "role": "variation",
+        "packId": "pack-nyc-garage",
+        "sceneTag": "nyc-garage",
+        "era": "1988-1992",
+        "description": "A kick anticipates beat 2 of bar 2 — landing on the 'a' of beat 1. This is the call before the clap response on beat 2. Common NYC house move: the kick reaches toward the clap before the clap arrives.",
+        "digSceneRef": "dig-scene-nyc-garage"
+      }
+    },
+    {
+      "version": "1.0",
+      "id": "var-nyc-garage-001-b",
+      "sourceStudyId": "study-nyc-garage-001",
+      "bpm": 122,
+      "timeSignature": { "numerator": 4, "denominator": 4 },
+      "stepsPerBar": 16,
+      "bars": 2,
+      "lanes": [
+        { "id": "kick",  "name": "Kick",       "midiNote": 36, "chokeGroup": null },
+        { "id": "snare", "name": "Snare",       "midiNote": 38, "chokeGroup": null },
+        { "id": "clap",  "name": "Clap",        "midiNote": 39, "chokeGroup": null },
+        { "id": "chat",  "name": "Closed Hat",  "midiNote": 42, "chokeGroup": "hats" },
+        { "id": "ohat",  "name": "Open Hat",    "midiNote": 46, "chokeGroup": "hats" }
+      ],
+      "steps": {
+        "kick":  [3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,0,0,  3,0,0,0, 0,0,0,0, 3,0,0,0, 0,0,0,0],
+        "snare": [0,0,0,0, 0,0,0,1, 0,0,0,0, 0,0,0,1,  0,0,0,0, 0,0,0,1, 0,0,0,0, 0,0,0,1],
+        "clap":  [0,0,0,0, 3,0,0,0, 0,0,0,0, 3,0,0,0,  0,0,0,0, 3,0,0,0, 0,0,0,0, 3,0,0,0],
+        "chat":  [1,0,1,0, 1,0,1,0, 1,0,1,0, 1,0,1,0,  1,0,1,0, 1,0,1,0, 1,0,1,0, 1,0,1,0],
+        "ohat":  [0,0,0,1, 0,0,0,1, 0,0,0,1, 0,0,0,1,  0,0,0,1, 0,0,0,1, 0,0,0,1, 0,0,0,1]
+      },
+      "groove": { "presetId": "nyc-garage-lilt", "intensity": 0.8 },
+      "seed": null,
+      "mutationParams": null,
+      "metadata": {
+        "title": "NYC Garage — Body and Soul (Ghost Snare)",
+        "studyId": "study-nyc-garage-001",
+        "role": "variation",
+        "packId": "pack-nyc-garage",
+        "sceneTag": "nyc-garage",
+        "era": "1988-1992",
+        "description": "A ghost snare lands on the 'a' of each beat — just before the next downbeat. With the open hat already riding on the same 16th position, the snare ghost sits underneath it, adding depth without breaking the hat's momentum.",
+        "digSceneRef": "dig-scene-nyc-garage"
+      }
+    }
+  ],
+  "kitPairing": "nyc-garage",
+  "sceneTag": "nyc-garage",
+  "era": "1988-1992",
+  "bpmRange": [118, 126],
+  "digSceneRef": "dig-scene-nyc-garage",
+  "packId": "pack-nyc-garage"
+}
