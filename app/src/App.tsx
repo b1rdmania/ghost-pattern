@@ -426,18 +426,19 @@ export default function App() {
           </button>
         </div>
 
-        {/* Scene overlay */}
+        {/* Scene drawer — inline, no fixed positioning, no z-index fights */}
         {menuOpen && (
-          <div style={{ position: 'fixed', inset: 0, zIndex: 20, display: 'flex', flexDirection: 'column' }}>
-            <div style={{ background: C.bgSidebar, borderBottom: `1px solid ${C.border}`, padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ fontSize: 9, letterSpacing: 2.5, textTransform: 'uppercase', color: C.textDim, fontWeight: 500 }}>Scenes</span>
-              <button onClick={() => setMenuOpen(false)} style={{ background: 'transparent', border: 'none', color: C.textDim, fontSize: 20, cursor: 'pointer', padding: '4px 8px', lineHeight: 1 }}>✕</button>
-            </div>
-            <div style={{ flex: 1, background: C.bgSidebar, overflowY: 'auto' }}>
-              <SceneList onSelect={() => setMenuOpen(false)} />
-            </div>
-            {/* Tap outside to close */}
-            <div onClick={() => setMenuOpen(false)} style={{ position: 'absolute', inset: 0, zIndex: -1 }} />
+          <div style={{ background: C.bgSidebar, borderBottom: `1px solid ${C.border}` }}>
+            {studyList.map(study => {
+              const isActive = study.id === activeStudy.id
+              return (
+                <button key={study.id}
+                  onClick={() => { openStudy(study.id); setMenuOpen(false) }}
+                  style={{ display: 'flex', alignItems: 'center', width: '100%', textAlign: 'left', background: isActive ? C.accentDim : 'transparent', border: 'none', borderLeft: `3px solid ${isActive ? C.accent : 'transparent'}`, color: isActive ? C.accent : C.textSub, fontSize: 13, fontWeight: isActive ? 600 : 400, letterSpacing: 0.5, padding: '18px 20px', cursor: 'pointer', transition: 'background 0.1s' }}>
+                  {study.title.split('—')[0].trim()}
+                </button>
+              )
+            })}
           </div>
         )}
 
