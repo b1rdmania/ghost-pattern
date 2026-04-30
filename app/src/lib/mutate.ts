@@ -42,22 +42,22 @@ export function mutate(source: PatternDocument, params: MutationParams): Pattern
     }
   }
 
-  // 3. accentShift — shift accent (3) steps within beat groups, non-kick lanes
+  // 3. accentShift — shift any active (vel >= 1) step within beat groups, non-kick lanes
   for (const lane of doc.lanes) {
     if (lane.id === kickId) continue
     const beatSize = doc.stepsPerBar / 4
     for (let beat = 0; beat < doc.bars * 4; beat++) {
       const start = beat * beatSize
       for (let s = start; s < start + beatSize; s++) {
-        if (doc.steps[lane.id][s] === 3) {
+        const vel = doc.steps[lane.id][s]
+        if (vel > 0) {
           const dir = params.accentShift >= 0 ? 1 : -1
           if (rng() < Math.abs(params.accentShift)) {
             const target = s + dir
             if (target >= start && target < start + beatSize) {
-              doc.steps[lane.id][s] = doc.steps[lane.id][target] > 0
-                ? doc.steps[lane.id][target]
-                : 1
-              doc.steps[lane.id][target] = 3
+              const displaced = doc.steps[lane.id][target]
+              doc.steps[lane.id][target] = vel
+              doc.steps[lane.id][s] = displaced
             }
           }
         }
